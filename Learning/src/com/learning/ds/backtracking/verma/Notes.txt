@@ -1,0 +1,20 @@
+1. Parent of Backtracking is Recursion
+2. Number of Choices is large
+3. It has Controlled Recursion
+4. Pass by Reference
+
+General Pattern
+
+    public void solve(Pass by Reference Object) {
+        if(isSolved()) {
+            Print or save the result somewhere.
+        }
+        // 2. Number of choices are large compared to recursion only that had 2 choices.
+        // Hence the for loop
+        for(i -> n)
+            isValidChoice() // 3. Controlled Recursion {
+                // 4. Add the choice
+                solve(Ref. Object)
+                // 4. Remove the Choice
+            }
+    }
