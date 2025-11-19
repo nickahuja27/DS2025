@@ -1,0 +1,4 @@
+- Check if there are any CHOICES and if there are any decisions to make
+- Wherever you see Choices and Decisions: Consider Recursion
+- Try to create a recursive Tree.
+-
