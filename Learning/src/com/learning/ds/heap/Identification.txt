@@ -1,0 +1,6 @@
+Look for the following keywords in the question
+- Is there "K"?
+- Smallest or Largest
+
+If K + smallest -> make the Max Heap
+If K + Largest -> make the Min Heap
