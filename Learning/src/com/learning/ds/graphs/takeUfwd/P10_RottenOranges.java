@@ -19,7 +19,6 @@ public class P10_RottenOranges {
     private static int bfs(int row, int col) {
         Queue<Pair> queue = new LinkedList<>();
         queue.add(new Pair(row, col, 0));
-//        visited[row][col] = true;
         int timeTaken = -1;
 
         while (!queue.isEmpty()) {
