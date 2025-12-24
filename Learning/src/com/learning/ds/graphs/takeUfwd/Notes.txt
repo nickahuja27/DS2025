@@ -1,0 +1,1 @@
+- Whenever you see that Shortest Distance is asked: Use BFS

@@ -23,8 +23,8 @@ public class P6_JobSequencing {
         for(Job job : jobs) {
             for(int i = job.deadline; i >0; i-- ) {
                 if(results[i] == -1) {
-                    maxProfit += job.profit;
                     results[i] = job.id;
+                    maxProfit += job.profit;
                     break;
                 }
             }
