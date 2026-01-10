@@ -13,24 +13,7 @@ public class P05_BFSTraversal {
     }
 
     public static void bfs(GraphNode<Integer> node) {
-        if(node == null)
-            return;
 
-        Queue<GraphNode<Integer>> queue = new LinkedList<>();
-        queue.add(node);
-        node.visited = true;
-
-        while (!queue.isEmpty()) {
-            GraphNode<Integer> tempNode = queue.poll();
-            System.out.print(" " + tempNode.value);
-
-            for(GraphNode<Integer> neighbor : tempNode.neighbours) {
-                if(!neighbor.visited) {
-                    neighbor.visited = true;
-                    queue.add(neighbor);
-                }
-            }
-        }
     }
 
     public static GraphNode<Integer> createGraph() {

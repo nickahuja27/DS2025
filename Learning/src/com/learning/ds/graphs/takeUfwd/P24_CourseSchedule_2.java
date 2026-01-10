@@ -11,22 +11,9 @@ public class P24_CourseSchedule_2 {
 
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> adjList = createGraph();
-        for(int i = 0; i < numOfNodes; i++) {
-            if(!visited[i]) {
-                dfs(adjList, i);
-            }
-        }
-        while (!stack.isEmpty())
-            System.out.print(" " + stack.pop());
     }
 
     private static void dfs(ArrayList<ArrayList<Integer>> adjList, int node) {
-        visited[node] = true;
-        for(int neighbor : adjList.get(node)) {
-            if(!visited[neighbor])
-                dfs(adjList, neighbor);
-        }
-        stack.push(node);
     }
 
     private static ArrayList<ArrayList<Integer>> createGraph() {
