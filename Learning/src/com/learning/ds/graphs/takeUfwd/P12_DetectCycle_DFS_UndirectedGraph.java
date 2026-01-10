@@ -12,16 +12,6 @@ public class P12_DetectCycle_DFS_UndirectedGraph {
     }
 
     private static void dfs(GraphNode<Integer> node, int parentNode) {
-        if(node == null) return;
-        visited[node.value] = true;
-
-        for(GraphNode<Integer> neighbor : node.neighbours) {
-            if(!visited[neighbor.value] && neighbor.value != parentNode) {
-                dfs(neighbor, node.value);
-            } else if (visited[neighbor.value] && neighbor.value != parentNode) {
-                System.out.println("Cycle Detected...");
-            }
-        }
     }
 
     public static GraphNode<Integer> createGraph() {

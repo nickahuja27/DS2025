@@ -24,23 +24,7 @@ public class P38_CheapestFlightsWithinKStops {
     }
 
     private static void findFlights(ArrayList<ArrayList<WorkingNode>> adjList, int K) {
-        //There is infact no need for a PQ. A simple queue will work just as fine.
-        PriorityQueue<WorkingNode> pQueue =
-                new PriorityQueue<>((e1, e2) -> e1.stops - e2.stops);
-//        Queue<WorkingNode> pQueue = new LinkedList<>();
-        distance[SRC_NODE] = 0;
-        pQueue.add(new WorkingNode(0, SRC_NODE, 0));
 
-        while (!pQueue.isEmpty()) {
-            WorkingNode tempNode = pQueue.poll();
-            if(tempNode.stops > K) continue;
-            for(WorkingNode neighbor : adjList.get(tempNode.toNode)) {
-                distance[neighbor.toNode] = Math.min(distance[neighbor.toNode],
-                            distance[tempNode.toNode] + neighbor.weight);
-                neighbor.stops = tempNode.stops + 1;
-                pQueue.add(neighbor);
-            }
-        }
     }
 
     private static class WorkingNode {

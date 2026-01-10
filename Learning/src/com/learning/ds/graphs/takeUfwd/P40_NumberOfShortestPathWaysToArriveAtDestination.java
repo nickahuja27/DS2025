@@ -38,25 +38,7 @@ public class P40_NumberOfShortestPathWaysToArriveAtDestination {
     }
 
     private static void findWays(ArrayList<ArrayList<WeightedEdge>> adjList) {
-        PriorityQueue<WeightedEdge> pQueue =
-                new PriorityQueue<>((e1, e2) -> e1.weight - e2.weight);
-        pQueue.add(new WeightedEdge(SRC_NODE, 0));
-        distance[SRC_NODE] = 0;
-        while (!pQueue.isEmpty()) {
-            WeightedEdge tempNode = pQueue.poll();
-            for(WeightedEdge neighbor : adjList.get(tempNode.nodeValue)) {
-                int tempWeight = distance[tempNode.nodeValue] + neighbor.weight;
-                if(distance[neighbor.nodeValue] == tempWeight) {
-                    ways[neighbor.nodeValue] += 1;
-                } else if(ways[neighbor.nodeValue] == 0) {
-                    ways[neighbor.nodeValue] = 1;
-                }
-
-                distance[neighbor.nodeValue] =
-                        Math.min(distance[neighbor.nodeValue], tempWeight);
-                    pQueue.add(neighbor);
-            }
-        }
+        
     }
 
     public static ArrayList<ArrayList<WeightedEdge>> createGraph() {

@@ -13,29 +13,13 @@ public class P24_CourseSchedule_1 {
 
     public static void main(String[] args) {
         boolean canComplete = true;
-        ArrayList<ArrayList<Integer>> adjList = createGraph();
-        //NOTE THAT THE LOOP IS RUN FROM COURSE TAKEN FIRST TO COURSE TAKEN LAST.
-        for(int i = numOfNodes - 1; i >= 0; i--) {
-            if(!visited[i]) {
-                canComplete = dfs(adjList, i);
-                if(!canComplete)
-                    break;
-            }
-        }
 
         System.out.println("Can complete all courses: " + canComplete);
     }
 
     private static boolean dfs(ArrayList<ArrayList<Integer>> adjList, int node) {
         boolean canComplete = true;
-        visited[node] = true;
-        for(int neighbor : adjList.get(node)) {
-            if(visited[neighbor]) {
-                canComplete = false;
-                break;
-            }
-            canComplete = dfs(adjList, neighbor);
-        }
+
         return canComplete;
     }
 

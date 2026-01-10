@@ -14,23 +14,6 @@ public class P11_CheckCycle_BFS_UnDirectedGraph {
     }
 
     private static void findCycleBFS(GraphNode<Integer> node) {
-        Queue<WorkingNode> queue = new LinkedList<>();
-        queue.add(new WorkingNode(node, new GraphNode(-1)));
-        visited[node.value] = true;
-
-        while (!queue.isEmpty()) {
-            WorkingNode<Integer> tempNode = queue.poll();
-            for(GraphNode<Integer> neighbor : tempNode.node.neighbours) {
-                if(!visited[neighbor.value] &&
-                        neighbor.value != tempNode.parentNode.value) {
-                    visited[neighbor.value] = true;
-                    queue.add(new WorkingNode(neighbor, tempNode.node));
-                } else if(visited[neighbor.value] && neighbor.value != tempNode.parentNode.value) {
-                    System.out.println("Cycle Detected...");
-                    return;
-                }
-            }
-        }
     }
 
     public static class WorkingNode<Integer> {

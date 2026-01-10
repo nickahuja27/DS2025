@@ -28,23 +28,7 @@ public class P36_ShortestDistanceInBinaryMaze {
     }
 
     private static Node findShortestPath(Node srcNode, Node destNode) {
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(srcNode);
 
-        while (!queue.isEmpty()) {
-            Node tempNode = queue.poll();
-
-            if (tempNode.row == destNode.row && tempNode.col == destNode.col)
-                return tempNode;
-
-            for(int i = 0; i < dx.length; i++) {
-                if(isValid(tempNode.row + dx[i], tempNode.col + dy[i])) {
-                    visited[tempNode.row][tempNode.col] = true;
-                    queue.add(new Node(tempNode.row + + dx[i],
-                            tempNode.col + dy[i], tempNode.distance + 1));
-                }
-            }
-        }
         return null;
     }
 

@@ -21,25 +21,11 @@ public class P21_TopologicalSort {
 
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> adjList = createGraph();
-        for(int i = 0; i < numOfNodes; i++) {
-            if(!visited[i]) {
-                dfs(adjList, i);
-            }
-        }
 
-        while (!stack.isEmpty())
-            System.out.print(" " + stack.pop());
     }
 
     private static void dfs(ArrayList<ArrayList<Integer>> adjList, int node) {
-        if(visited[node]) return;
-        visited[node] = true;
 
-        for(int neighbor : adjList.get(node)) {
-            if(!visited[neighbor])
-                dfs(adjList, neighbor);
-        }
-        stack.add(node);
     }
 
 

@@ -9,16 +9,7 @@ public class P06_DFS {
     }
 
     public static void dfs(GraphNode<Integer> node) {
-        if(node == null || node.visited)
-            return;
 
-        System.out.print(" "+ node.value);
-        node.visited = true;
-        for(GraphNode<Integer> neighbor : node.neighbours) {
-            if(!neighbor.visited) {
-                dfs(neighbor);
-            }
-        }
     }
 
     public static GraphNode<Integer> createGraph() {

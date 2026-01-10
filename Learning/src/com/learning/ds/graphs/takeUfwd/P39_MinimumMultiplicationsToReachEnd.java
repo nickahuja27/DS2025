@@ -17,19 +17,5 @@ public class P39_MinimumMultiplicationsToReachEnd {
     }
 
     private static void findDistance() {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(START);
-        distance[START] = 0;
-
-        while (!queue.isEmpty()) {
-            int workingNum = queue.poll();
-            for(int i = 0; i < arr.length; i++) {
-                int newNum = (workingNum * arr[i]) % 10000;
-                distance[newNum] = Math.min(distance[newNum], distance[workingNum] + 1);
-                if(newNum == END)
-                    return;
-                queue.add(newNum);
-            }
-        }
     }
 }

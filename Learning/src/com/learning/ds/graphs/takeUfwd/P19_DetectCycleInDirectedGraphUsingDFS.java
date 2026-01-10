@@ -10,15 +10,6 @@ public class P19_DetectCycleInDirectedGraphUsingDFS {
     private static Set<Integer> pathVisited = new HashSet<>();
 
     public static void main(String[] args) {
-        ArrayList<ArrayList<Integer>> adjList = createGraph();
-        for(int i = 1; i < adjList.size(); i++) {
-            if(!visited[i]) {
-                boolean cyclePresent = isCyclic(i, adjList);
-                if(cyclePresent) {
-                    System.out.println("Cycle is Present");
-                }
-            }
-        }
     }
 
     private static boolean isCyclic(int node, ArrayList<ArrayList<Integer>> adjList) {

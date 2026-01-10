@@ -31,28 +31,7 @@ public class P35_PrintShortestPath_DijkstrasAlgorithm {
     }
 
     private static void findShortestPath(ArrayList<ArrayList<WeightedEdge>> adjList) {
-        PriorityQueue<WeightedEdge> pQueue =
-                new PriorityQueue<>((edge1, edge2) -> edge1.weight - edge2.weight);
 
-        pQueue.add(new WeightedEdge(SRC_NODE, 0));
-        distance[SRC_NODE] = 0;
-        parent[SRC_NODE] = -1;
-
-        while (!pQueue.isEmpty()) {
-            WeightedEdge tempNode = pQueue.poll();
-            visited[tempNode.nodeValue] = true;
-            for(WeightedEdge neighbor : adjList.get(tempNode.nodeValue)) {
-                int oldDist = distance[neighbor.nodeValue];
-                int newDist = distance[tempNode.nodeValue] + neighbor.weight;
-                if(newDist < oldDist) {
-                    distance[neighbor.nodeValue] = newDist;
-                    parent[neighbor.nodeValue] = tempNode.nodeValue;
-                }
-                if (!visited[neighbor.nodeValue]) {
-                    pQueue.add(neighbor);
-                }
-            }
-        }
     }
 
     public static ArrayList<ArrayList<WeightedEdge>> createGraph() {
