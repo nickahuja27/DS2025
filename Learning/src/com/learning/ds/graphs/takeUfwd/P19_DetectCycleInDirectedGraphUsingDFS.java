@@ -1,42 +1,42 @@
 package com.learning.ds.graphs.takeUfwd;
 
 import java.util.ArrayList;
-/*
-Seq of courses: 3-2-1-0
-Take 1 before 0, 2 before 1 and 3 before 2
-One of the objective is to determine whether there is any Cycle or not.
-LOOK FOR P19 PROBLEM.
- */
-public class P24_CourseSchedule_1 {
+import java.util.HashSet;
+import java.util.Set;
+
+public class P19_DetectCycleInDirectedGraphUsingDFS {
     private static final int numOfNodes = 10;
     private static boolean[] visited = new boolean[numOfNodes + 1];
+    private static Set<Integer> pathVisited = new HashSet<>();
 
     public static void main(String[] args) {
-        boolean canComplete = true;
         ArrayList<ArrayList<Integer>> adjList = createGraph();
-        //NOTE THAT THE LOOP IS RUN FROM COURSE TAKEN FIRST TO COURSE TAKEN LAST.
-        for(int i = numOfNodes - 1; i >= 0; i--) {
+        for(int i = 1; i < adjList.size(); i++) {
             if(!visited[i]) {
-                canComplete = dfs(adjList, i);
-                if(!canComplete)
-                    break;
+                boolean cyclePresent = isCyclic(i, adjList);
+                if(cyclePresent) {
+                    System.out.println("Cycle is Present");
+                }
             }
         }
-
-        System.out.println("Can complete all courses: " + canComplete);
     }
 
-    private static boolean dfs(ArrayList<ArrayList<Integer>> adjList, int node) {
-        boolean canComplete = true;
+    private static boolean isCyclic(int node, ArrayList<ArrayList<Integer>> adjList) {
+        pathVisited.add(node);
         visited[node] = true;
-        for(int neighbor : adjList.get(node)) {
-            if(visited[neighbor]) {
-                canComplete = false;
-                break;
+
+        for(int neighbor: adjList.get(node)) {
+            if (pathVisited.contains(neighbor)) {
+                return true;
             }
-            canComplete = dfs(adjList, neighbor);
+            if(!visited[neighbor]) {
+                boolean retisCycle = isCyclic(neighbor, adjList);
+                if(retisCycle)
+                    return true;
+            }
         }
-        return canComplete;
+        pathVisited.remove(node);
+        return false;
     }
 
     private static ArrayList<ArrayList<Integer>> createGraph() {

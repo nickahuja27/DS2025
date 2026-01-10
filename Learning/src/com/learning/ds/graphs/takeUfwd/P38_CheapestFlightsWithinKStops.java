@@ -25,7 +25,8 @@ public class P38_CheapestFlightsWithinKStops {
 
     private static void findFlights(ArrayList<ArrayList<WorkingNode>> adjList, int K) {
         //There is infact no need for a PQ. A simple queue will work just as fine.
-        PriorityQueue<WorkingNode> pQueue = new PriorityQueue<>((e1, e2) -> e1.stops - e2.stops);
+        PriorityQueue<WorkingNode> pQueue =
+                new PriorityQueue<>((e1, e2) -> e1.stops - e2.stops);
 //        Queue<WorkingNode> pQueue = new LinkedList<>();
         distance[SRC_NODE] = 0;
         pQueue.add(new WorkingNode(0, SRC_NODE, 0));
@@ -33,21 +34,22 @@ public class P38_CheapestFlightsWithinKStops {
         while (!pQueue.isEmpty()) {
             WorkingNode tempNode = pQueue.poll();
             if(tempNode.stops > K) continue;
-            for(WorkingNode neighbor : adjList.get(tempNode.value)) {
-                    distance[neighbor.value] = Math.min(distance[neighbor.value],
-                            distance[tempNode.value] + neighbor.weight);
-                    pQueue.add(new WorkingNode(tempNode.stops + 1, neighbor.value, neighbor.weight));
+            for(WorkingNode neighbor : adjList.get(tempNode.toNode)) {
+                distance[neighbor.toNode] = Math.min(distance[neighbor.toNode],
+                            distance[tempNode.toNode] + neighbor.weight);
+                neighbor.stops = tempNode.stops + 1;
+                pQueue.add(neighbor);
             }
         }
     }
 
     private static class WorkingNode {
         public int stops;
-        public int value;
+        public int toNode;
         public int weight;
-        public WorkingNode(int stops, int value, int weight) {
+        public WorkingNode(int stops, int toNode, int weight) {
             this.stops = stops;
-            this.value = value;
+            this.toNode = toNode;
             this.weight = weight;
         }
     }

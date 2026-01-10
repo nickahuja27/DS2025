@@ -9,7 +9,7 @@ public class P06_DFS {
     }
 
     public static void dfs(GraphNode<Integer> node) {
-        if(node == null)
+        if(node == null || node.visited)
             return;
 
         System.out.print(" "+ node.value);
