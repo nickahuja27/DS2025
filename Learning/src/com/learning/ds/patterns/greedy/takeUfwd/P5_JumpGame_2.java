@@ -12,20 +12,7 @@ public class P5_JumpGame_2 {
     }
 
     private static int findMinJumps(int[] jumpsArr, int indexReachedSoFar, int jumpsSoFar) {
-        if(indexReachedSoFar >= jumpsArr.length - 1) {
-            return jumpsSoFar;
-        }
-        if(jumpsArr[indexReachedSoFar] == 0)
-            return Integer.MAX_VALUE;
 
-        int curStartingPoint = indexReachedSoFar;
-        int currEndPoint = indexReachedSoFar + jumpsArr[indexReachedSoFar];
-
-        int minJumps = Integer.MAX_VALUE;
-        for(int i = curStartingPoint + 1; i <= currEndPoint; i++) {
-            int retJumps = findMinJumps(jumpsArr, i, jumpsSoFar + 1);
-            minJumps = Math.min(minJumps, retJumps);
-        }
-        return minJumps;
+        return -1;
     }
 }

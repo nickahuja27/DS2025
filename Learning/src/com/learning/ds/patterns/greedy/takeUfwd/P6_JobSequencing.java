@@ -14,24 +14,7 @@ public class P6_JobSequencing {
     }
 
     private static void findMaxProfit(Job[] jobs) {
-        Arrays.sort(jobs, (j1, j2) -> j2.profit - j1.profit);
-        int maxDeadline = Arrays.stream(jobs).mapToInt(j -> j.deadline).max().getAsInt();
-        int[] results = new int[maxDeadline + 1];
-        Arrays.fill(results, -1);
 
-        int maxProfit = 0;
-        for(Job job : jobs) {
-            for(int i = job.deadline; i >0; i-- ) {
-                if(results[i] == -1) {
-                    results[i] = job.id;
-                    maxProfit += job.profit;
-                    break;
-                }
-            }
-        }
-
-        System.out.println("Job Ids: " + Arrays.toString(results));
-        System.out.println("Max Profit: " + maxProfit);
     }
 
     private static class Job {

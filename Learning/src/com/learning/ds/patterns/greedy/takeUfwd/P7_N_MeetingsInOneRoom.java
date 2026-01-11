@@ -19,22 +19,7 @@ public class P7_N_MeetingsInOneRoom {
     }
 
     private static void maximizeNumOfMeetings(ArrayList<Meeting> inMeetings) {
-        inMeetings.sort((m1, m2) -> m1.end - m2.end);
-
-        Meeting prevMeeting = inMeetings.get(0);
-        ArrayList<Meeting> resultsList = new ArrayList<>();
-        resultsList.add(prevMeeting);
-
-        for(int i = 1; i < inMeetings.size(); i++) {
-            Meeting currMeeting = inMeetings.get(i);
-            if(prevMeeting.end < currMeeting.start) {
-                System.out.println(currMeeting.pos);
-                resultsList.add(currMeeting);
-                prevMeeting = currMeeting;
-            }
-        }
-
-        System.out.println("Num of meetings that can be scheduled: " + resultsList);
+        
     }
 
     private static class Meeting {

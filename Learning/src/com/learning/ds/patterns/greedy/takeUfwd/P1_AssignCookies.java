@@ -10,20 +10,6 @@ public class P1_AssignCookies {
     }
 
     private static void findNumOfAssignments(int[] greedFactor, int[] cookieSize) {
-        Arrays.sort(greedFactor);
-        Arrays.sort(cookieSize);
 
-        int numOfAssignments = 0;
-        int greedCounter = 0;
-        int cookieCounter = 0;
-
-        while (greedCounter < greedFactor.length && cookieCounter < cookieSize.length) {
-            if(greedFactor[greedCounter] <= cookieSize[cookieCounter]) {
-                greedCounter++;
-                numOfAssignments++;
-            }
-            cookieCounter++;
-        }
-        System.out.println("Num of Assignments: " + numOfAssignments);
     }
 }
