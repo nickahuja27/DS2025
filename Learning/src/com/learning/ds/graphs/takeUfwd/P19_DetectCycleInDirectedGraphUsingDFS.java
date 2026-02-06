@@ -13,20 +13,6 @@ public class P19_DetectCycleInDirectedGraphUsingDFS {
     }
 
     private static boolean isCyclic(int node, ArrayList<ArrayList<Integer>> adjList) {
-        pathVisited.add(node);
-        visited[node] = true;
-
-        for(int neighbor: adjList.get(node)) {
-            if (pathVisited.contains(neighbor)) {
-                return true;
-            }
-            if(!visited[neighbor]) {
-                boolean retisCycle = isCyclic(neighbor, adjList);
-                if(retisCycle)
-                    return true;
-            }
-        }
-        pathVisited.remove(node);
         return false;
     }
 
