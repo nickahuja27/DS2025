@@ -10,6 +10,6 @@ public class P10_VariableSize_LongestSubStringWithoutRepeatingCharacters {
     }
 
     private static void findLongestSubString(String inStr) {
-        
+
     }
 }
