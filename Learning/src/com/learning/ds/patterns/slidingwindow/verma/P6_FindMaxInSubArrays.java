@@ -10,25 +10,6 @@ public class P6_FindMaxInSubArrays {
     }
 
     private static void findMax(int[] inArray, int windowSize) {
-        int start = 0;
-        int end = 0;
-        Queue<Integer> queue = new LinkedList<>();
 
-        while (end < inArray.length) {
-            while (!queue.isEmpty() && queue.peek() <= inArray[end])
-                queue.remove();
-            queue.add(inArray[end]);
-
-            if(end - start + 1 < windowSize)
-                end++;
-            else {
-                System.out.print(" " + queue.peek());
-                if(inArray[start] == queue.peek())
-                    queue.remove();
-
-                start++;
-                end++;
-            }
-        }
     }
 }
